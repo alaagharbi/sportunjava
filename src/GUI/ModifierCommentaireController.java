@@ -21,6 +21,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.Commentaire;
 import service.ServiceCommentaire;
+import utils.Statics;
 
 /**
  * FXML Controller class
@@ -45,7 +46,8 @@ public class ModifierCommentaireController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         String username = "usrname";
-                            Commentaire com=new Commentaire(26,"good job");
+                          //  Commentaire com=new Commentaire(26,"good job");
+                          Commentaire com=Statics.COM;
         int comid = 3;
         String comtxt = "naorno";
         txtusername.setText(com.getUsername());

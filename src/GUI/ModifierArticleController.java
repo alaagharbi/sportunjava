@@ -83,7 +83,7 @@ public class ModifierArticleController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
           String usrname="usrname";
-        int artid=3;
+        int artid=Statics.ART.getId();
         ListView<VBox> li=new ListView<>();
     ServiceArticle sa=new ServiceArticle();
          article = sa.ArticlleDetail(artid);

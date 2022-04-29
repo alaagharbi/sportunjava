@@ -92,7 +92,7 @@ private ImageView ivArt;
         // TODO
         
         String usrname="usrname";
-        int artid=3;
+        int artid=Statics.ART.getId();
         ListView<VBox> li=new ListView<>();
     ServiceArticle sa=new ServiceArticle();
         article=sa.ArticlleDetail(artid);
@@ -144,7 +144,7 @@ File im=new File(Statics.RelativeURL+"\\"+article.getMedia());
                 com.setUsername(usrname);
                 com.setText(txAddCom.getText());
                 sc.ajouter(com);
-                URL fxUL = getClass().getResource("../GUI/SingleArticlFrant.fxml");
+                URL fxUL = getClass().getResource("../GUI/SingleArticleBack.fxml");
                 
                 //URL fxURL = getClass().getResource("../gui1/Payment.fxml");
                 Parent root = FXMLLoader.load(fxUL);

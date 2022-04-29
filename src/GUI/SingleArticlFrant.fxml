@@ -31,7 +31,7 @@
       </ButtonBar>
       <ScrollPane layoutX="-2.0" layoutY="101.0" prefHeight="804.0" prefWidth="1042.0">
          <content>
-            <Pane prefHeight="1056.0" prefWidth="1022.0">
+            <Pane prefHeight="2268.0" prefWidth="1022.0">
                <children>
                   <Text fx:id="txtdescription" fill="#8d8d8d" layoutX="215.0" layoutY="416.0" strokeType="OUTSIDE" strokeWidth="0.0" text="desc" visible="false" wrappingWidth="383.13671875">
                      <font>
@@ -40,27 +40,27 @@
                   </Text>
                   <HBox layoutX="180.0" layoutY="408.0" prefHeight="35.0" prefWidth="774.0">
                      <children>
-                        <Button fx:id="btds" mnemonicParsing="false" prefHeight="35.0" prefWidth="64.0" style="-fx-background-color: #FFFFFF;" textFill="#dd0202">
+                        <Button fx:id="btliko" mnemonicParsing="false" prefHeight="36.0" prefWidth="62.0" style="-fx-background-color: #FFFFFF;">
                            <graphic>
-                              <ImageView fx:id="btdislikes" fitHeight="26.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="btlikes" fitHeight="28.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../blogimages/like-removebg-preview.png" />
                                  </image>
                               </ImageView>
                            </graphic></Button>
-                        <Button fx:id="btliko" mnemonicParsing="false" prefHeight="32.0" prefWidth="74.0" style="-fx-background-color: #FFFFFF;">
-                           <graphic>
-                              <ImageView fx:id="btlikes" fitHeight="31.0" fitWidth="83.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../blogimages/dislike-removebg-preview.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic></Button>
-                        <Label fx:id="lLikes" prefHeight="35.0" prefWidth="120.0" text="likes:" textFill="#c34343">
+                        <Label fx:id="lLikes" prefHeight="35.0" prefWidth="148.0" text="likes:" textFill="#c34343">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Label>
+                        <Button fx:id="btds" mnemonicParsing="false" prefHeight="35.0" prefWidth="64.0" style="-fx-background-color: #FFFFFF;" textFill="#dd0202">
+                           <graphic>
+                              <ImageView fx:id="btdislikes" fitHeight="30.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../blogimages/thusdown.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
                         <ImageView fitHeight="73.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../blogimages/comments-removebg-preview.png" />
@@ -108,14 +108,14 @@
                         <Image url="@../../../../../../../wamp64/www/Sportun-Achwek/template/public/upload/images/1caf59b1062863d2ff089d0e1b9f8330.jpeg" />
                      </image>
                   </ImageView>
-                  <VBox layoutX="215.0" layoutY="458.0" prefHeight="1689.0" prefWidth="659.0">
+                  <VBox layoutX="215.0" layoutY="458.0" prefHeight="1961.0" prefWidth="659.0">
                      <children>
                         <Text fx:id="txtArt" strokeType="OUTSIDE" strokeWidth="0.0" text="Textlkmqdffffffffffffffffffffffffffffffffffffffffffffffffffffqfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffqf" wrappingWidth="658.13671875">
                            <font>
                               <Font name="Arial" size="15.0" />
                            </font>
                         </Text>
-                        <VBox fx:id="vbcom" prefHeight="1666.0" prefWidth="659.0" />
+                        <VBox fx:id="vbcom" prefHeight="1938.0" prefWidth="659.0" />
                      </children>
                   </VBox>
                </children>

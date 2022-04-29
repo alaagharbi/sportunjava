@@ -66,6 +66,8 @@ public class LIstArticleBackController implements Initializable {
     private TextField txtsearche;
       @FXML
     private Button btsearcher;
+      @FXML
+      private Button bttri;
 private Label time;
     /**
      * Initializes the controller class.
@@ -91,7 +93,7 @@ btdetail.setText("details");
                btdetail.setOnAction(event ->{
     try {
         URL fxURL = getClass().getResource("../GUI/SingleArticleBack.fxml");
-        
+                Statics.ART=elem;
         //URL fxURL = getClass().getResource("../gui1/Payment.fxml");
         Parent root = FXMLLoader.load(fxURL);
         Stage win = (Stage) btdetail.getScene().getWindow();
@@ -106,7 +108,7 @@ btdetail.setText("details");
                btmodif.setOnAction(event ->{
     try {
         URL fxURL = getClass().getResource("../GUI/ModifierArticle.fxml");
-        
+        Statics.ART=elem;
         //URL fxURL = getClass().getResource("../gui1/Payment.fxml");
         Parent root = FXMLLoader.load(fxURL);
         Stage win = (Stage) btmodif.getScene().getWindow();
@@ -196,7 +198,7 @@ btdetaill.setText("details");
                btdetaill.setOnAction(events ->{
     try {
         URL fxURL = getClass().getResource("../GUI/SingleArticleBack.fxml");
-        
+                Statics.ART=elem;
         //URL fxURL = getClass().getResource("../gui1/Payment.fxml");
         Parent root = FXMLLoader.load(fxURL);
         Stage win = (Stage) btdetaill.getScene().getWindow();
@@ -211,7 +213,114 @@ btdetaill.setText("details");
                btmodif1.setOnAction(events ->{
     try {
         URL fxURL = getClass().getResource("../GUI/ModifierArticle.fxml");
+                Statics.ART=elem;
+        //URL fxURL = getClass().getResource("../gui1/Payment.fxml");
+        Parent root = FXMLLoader.load(fxURL);
+        Stage win = (Stage) btmodif1.getScene().getWindow();
+        win.setScene(new Scene(root));
         
+    } catch (IOException ex) {
+        Logger.getLogger(ListCommentsFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+    }
+               });
+               
+               
+               btdelete1.setText("supprimer");
+               btdelete1.setOnAction(events ->{
+    try {
+        sa.supprimer(elem);
+        URL fxURL = getClass().getResource("../GUI/LIstArticleBack.fxml");
+        
+        //URL fxURL = getClass().getResource("../gui1/Payment.fxml");
+        Parent root = FXMLLoader.load(fxURL);
+        Stage win = (Stage) btdelete1.getScene().getWindow();
+        win.setScene(new Scene(root));
+        
+    } catch (IOException ex) {
+        Logger.getLogger(ListCommentsFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+    }
+               });
+                              Label lab4 = new Label();
+               HBox herbox = new HBox();
+                              VBox verbox = new VBox();
+                              Label labdate = new Label();
+                              Label lLikes = new Label();
+                              ImageView imagev=new ImageView();
+  lab1.setText(elem.getTitre());
+  lab1.setFont(Font.font(26));
+              lab1.setPrefWidth(300);
+
+        lab2.setText(elem.getDescription());
+        lab2.setGraphic(imagev);
+          lab2.setFont(Font.font(20));
+            lab2.setPrefWidth(300);
+
+        lab3.setText(elem.getTag());
+
+            lab3.setPrefWidth(300);
+        labdate.setText(elem.getCreatedAt());
+            labdate.setPrefWidth(100);
+
+                        lLikes.setPrefWidth(50);
+lLikes.setText(sa.likesCount(elem.getId())+" likes");
+File im=new File(Statics.RelativeURL+"\\"+elem.getMedia());
+        try {
+            System.out.println(im.toURI().toURL().toString());
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(SingleArticlFrantController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            iv.setImage(new Image(im.toURI().toURL().toString()));
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(SingleArticlFrantController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+                    iv.setFitHeight(181);
+                    iv.setFitWidth(191);
+                           verbox.getChildren().addAll(lab1,lab2,lab3,labdate,lLikes,btdetaill,btdelete1,btmodif1);
+
+                herbox.getChildren().addAll(iv,verbox);
+            herbox.setPrefWidth(voboxid.getMaxWidth());
+            herbox.getStyleClass().add("color-palette");
+herbox.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
+            voboxid.getChildren().addAll(herbox,lab4);
+                          
+       }
+               });
+                         bttri.setOnAction(event ->{
+                      String src=txtsearche.getText();
+  List<Article> lsarticler = sa.tri();
+                    System.out.println("list"+lsarticler);
+                    voboxid.getChildren().clear();
+                                 for(Article elem:lsarticler)
+       {
+       	 System.out.println (elem.toString());
+         Label lab1=new  Label();
+         Label lab2=new  Label();
+         Label lab3=new  Label();
+           ImageView iv=new ImageView();
+           Button btdetaill=new Button();
+           Button btmodif1=new Button();
+           Button btdelete1=new Button();
+btdetaill.setText("details");
+               btdetaill.setOnAction(events ->{
+    try {
+        URL fxURL = getClass().getResource("../GUI/SingleArticleBack.fxml");
+                Statics.ART=elem;
+        //URL fxURL = getClass().getResource("../gui1/Payment.fxml");
+        Parent root = FXMLLoader.load(fxURL);
+        Stage win = (Stage) btdetaill.getScene().getWindow();
+        win.setScene(new Scene(root));
+        
+    } catch (IOException ex) {
+        Logger.getLogger(ListCommentsFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+    }
+               });
+                
+               btmodif1.setText("modifier");
+               btmodif1.setOnAction(events ->{
+    try {
+        URL fxURL = getClass().getResource("../GUI/ModifierArticle.fxml");
+                Statics.ART=elem;
         //URL fxURL = getClass().getResource("../gui1/Payment.fxml");
         Parent root = FXMLLoader.load(fxURL);
         Stage win = (Stage) btmodif1.getScene().getWindow();

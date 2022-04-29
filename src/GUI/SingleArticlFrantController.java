@@ -50,6 +50,13 @@ import service.ServiceCommentaire;
 import sportunjava.SportunJava;
 import utils.Statics;
 import org.json.*;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
+import org.json.JSONObject;
 
 /**
  * FXML Controller class
@@ -92,27 +99,11 @@ private ImageView ivArt;
     public void initialize(URL url, ResourceBundle rb) {
         
         String usrname="usrname";
-        int artid=3;
+        int artid=Statics.ART.getId();
         ListView<VBox> li=new ListView<>();
     ServiceArticle sa=new ServiceArticle();
         article=sa.ArticlleDetail(artid);
-        if(sa.PoslikedByUser(artid, 1)){
-            File ig=new File("..\\blogimages\\like-removebg-preview.png");
-            try {
-                System.err.println(ig.toURI().toURL().toString());
-            } catch (MalformedURLException ex) {
-                Logger.getLogger(SingleArticlFrantController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-            try {
-btlikes.setImage(new Image(ig.toURI().toURL().toString()));
-btlikes.setFitWidth(43);
-btlikes.setFitHeight(43);
-
-            } catch (MalformedURLException ex) {
-                Logger.getLogger(SingleArticlFrantController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+       
         lArticleTitre.setText(article.getTitre());
         txtdescription.setText(article.getDescription());
         lhashtag.setText(article.getTag());
@@ -171,11 +162,6 @@ File im=new File(Statics.RelativeURL+"\\"+article.getMedia());
         
         
         
-        
-        
-        
-        
-        
        ServiceCommentaire sc =  new ServiceCommentaire();
         List<Commentaire> lscomnnet = sc.afficherCommentArticle(artid);
         Commentaire com=new Commentaire();
@@ -217,6 +203,7 @@ VBox verbo = new VBox();
                HBox herbox = new HBox();
 
                Button btsupprimer = new Button("supprimer");
+               btsupprimer.setBackground(Background.EMPTY);
                btsupprimer.setOnAction(event ->{
     try {
         sc.supprimer(elem);
@@ -230,11 +217,12 @@ VBox verbo = new VBox();
         Logger.getLogger(ListCommentsFXMLController.class.getName()).log(Level.SEVERE, null, ex);
     }
                });
-               Button btmodifer = new Button("supprimer");
+               Button btmodifer = new Button("mdifier");
+               btmodifer.setBackground(Background.EMPTY);
                btmodifer.setOnAction(event ->{
     try {
         URL fxURL = getClass().getResource("../GUI/ModifierCommentaire.fxml");
-        
+                Statics.COM=elem;
         Parent root = FXMLLoader.load(fxURL);
         Stage win = (Stage) btmodifer.getScene().getWindow();
         win.setScene(new Scene(root));
@@ -243,20 +231,21 @@ VBox verbo = new VBox();
         Logger.getLogger(ListCommentsFXMLController.class.getName()).log(Level.SEVERE, null, ex);
     }
                });
-//               ImageView imgId=new ImageView();
-//               imgId.setImage(new Image("..//blogimages//corbeille-removebg-preview.png"));
-//               imgId.setFitHeight(34);
-//               imgId.setFitWidth(34);
+            //   ImageView imgId=new ImageView();
+              // imgId.setImage(new Image("../blogimages/corbeille-removebg-preview.png"));
+               // imgId.setFitHeight(34);
+               // imgId.setFitWidth(34);
+              // btsupprimer.setGraphic(imgId);
                VBox verbox = new VBox();
             lab.setText(elem.getUsername());
             lab.setPrefWidth(300);
             System.out.println(elem.getUsername());
             lab1.setText(elem.getText());
-           // lab1.setText(cencor(elem.getText()));
+            lab1.setText(cencor(elem.getText()));
             lab1.setPrefWidth(300);
             verbox.getChildren().addAll(lab,lab1);
             if(elem.getUsername().equals(usrname)){
-            herbox.getChildren().addAll(verbox,btsupprimer);
+            herbox.getChildren().addAll(verbox,btsupprimer,btmodifer);
             }else
             {
             herbox.getChildren().addAll(verbox);
@@ -277,7 +266,7 @@ VBox verbo = new VBox();
             
             Request request = new Request.Builder()
                     .url("https://api.apilayer.com/bad_words?censor_character=*")
-                    .addHeader("apikey", "XSMFQDr2F7FEEYvsg2TpxnE7CXeF4lvb")
+                    .addHeader("apikey", "2IvCFgifsyIr1nS98p22dlt6WDq8KQ2i")
                     .method("POST", body)
                     .build();
             Response response = client.newCall(request).execute();
