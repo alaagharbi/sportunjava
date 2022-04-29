@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ModifierCommentaireController">
+   <children>
+      <ButtonBar prefHeight="34.0" prefWidth="598.0" style="-fx-background-color: #F23849;">
+         <buttons>
+            <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="149.0" style="-fx-background-color: #F23849;" text="home" textFill="WHITE" />
+            <Button mnemonicParsing="false" prefHeight="33.0" style="-fx-background-color: #F23849;" text="produit" textFill="#f2eeee" />
+            <Button mnemonicParsing="false" prefHeight="34.0" style="-fx-background-color: #F23849;" text="service" textFill="#fffefe" />
+            <Button mnemonicParsing="false" prefHeight="33.0" style="-fx-background-color: #F23849;" text="Evennement" textFill="WHITE" />
+            <Button mnemonicParsing="false" prefHeight="36.0" style="-fx-background-color: #F23849;" text="Blog" textFill="#fffefe">
+               <font>
+                  <Font name="Calibri Bold" size="12.0" />
+               </font>
+            </Button>
+         </buttons>
+      </ButtonBar>
+      <TextField fx:id="tfmodifCom" layoutX="141.0" layoutY="113.0" />
+      <Text fx:id="txtusername" layoutX="141.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="usrname" wrappingWidth="133.13671875" />
+      <Text fill="#c90404" layoutX="180.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="modifier Commentaire" wrappingWidth="239.13671875">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Button fx:id="btsub" layoutX="166.0" layoutY="187.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="108.0" style="-fx-background-color: #ffffff;" text="submit" textFill="#a10505" />
+      <Button fx:id="btannuler" layoutX="312.0" layoutY="188.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="82.0" style="-fx-background-color: #ffffff;" text="annuler" textFill="#fc3b3b" />
+   </children>
+</AnchorPane>
