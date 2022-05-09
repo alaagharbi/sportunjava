@@ -92,6 +92,7 @@ private ImageView ivArt;
     private Button btliko;
      @FXML
     private Button btds;
+ 
     /**
      * Initializes the controller class.
      */
@@ -106,6 +107,7 @@ private ImageView ivArt;
        
         lArticleTitre.setText(article.getTitre());
         txtdescription.setText(article.getDescription());
+        //txtArt.setText(article.getText());
         lhashtag.setText(article.getTag());
         lDate.setText(article.getCreatedAt());
         lLikes.setText(sa.likesCount(artid)+" likes");
@@ -241,7 +243,7 @@ VBox verbo = new VBox();
             lab.setPrefWidth(300);
             System.out.println(elem.getUsername());
             lab1.setText(elem.getText());
-            lab1.setText(cencor(elem.getText()));
+            //lab1.setText(cencor(elem.getText()));
             lab1.setPrefWidth(300);
             verbox.getChildren().addAll(lab,lab1);
             if(elem.getUsername().equals(usrname)){
@@ -255,6 +257,11 @@ VBox verbo = new VBox();
             herbox.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
             vbcom.getChildren().addAll(herbox,lab3);
         }
+//        trnsalate.setOnAction(eventsss->{
+//            String sss=txtArt.getText();
+//            trannstxt.setText(trans("bonjour petit"));
+//        });
+       System.out.println(trans("bonjour"));
     }    
     public String cencor(String str){
         String filtr="";
@@ -281,4 +288,30 @@ VBox verbo = new VBox();
         }
         return filtr;
     }
+    public String trans(String st){
+        String stt="";
+        try {
+            OkHttpClient client = new OkHttpClient().newBuilder().build();
+            MediaType mediaType = MediaType.parse("text/plain");
+            RequestBody body = RequestBody.create(mediaType, st);
+            Request request = new Request.Builder() .url("https://api.apilayer.com/language_translation/translate?target=en") 
+                     .addHeader("apikey", "mTJ9KbWtFgygUnzeNupYFhifDOeMkCSL")
+                     .method("POST", body) .build(); 
+            Response response = client.newCall(request).execute();
+                     JSONObject jArray =(JSONObject) new JSONObject(response.body().string());
+                     JSONArray jArray3 = jArray.getJSONArray("translations");
+                     String dev="";
+                     for(int i = 0; i < jArray3 .length(); i++)
+{
+   JSONObject object3 = jArray3.getJSONObject(i);
+   dev = object3.getString("translation");
+
 }
+                     //System.out.println(dev);
+                    return dev;
+        } catch (IOException ex) {
+            Logger.getLogger(SingleArticlFrantController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return stt;
+    }
+}          

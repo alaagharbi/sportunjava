@@ -306,7 +306,6 @@ btdetaill.setText("details");
     try {
         URL fxURL = getClass().getResource("../GUI/SingleArticleBack.fxml");
                 Statics.ART=elem;
-        //URL fxURL = getClass().getResource("../gui1/Payment.fxml");
         Parent root = FXMLLoader.load(fxURL);
         Stage win = (Stage) btdetaill.getScene().getWindow();
         win.setScene(new Scene(root));
@@ -321,7 +320,6 @@ btdetaill.setText("details");
     try {
         URL fxURL = getClass().getResource("../GUI/ModifierArticle.fxml");
                 Statics.ART=elem;
-        //URL fxURL = getClass().getResource("../gui1/Payment.fxml");
         Parent root = FXMLLoader.load(fxURL);
         Stage win = (Stage) btmodif1.getScene().getWindow();
         win.setScene(new Scene(root));
@@ -348,7 +346,7 @@ btdetaill.setText("details");
     }
                });
                               Label lab4 = new Label();
-               HBox herbox = new HBox();
+                              HBox herbox = new HBox();
                               VBox verbox = new VBox();
                               Label labdate = new Label();
                               Label lLikes = new Label();

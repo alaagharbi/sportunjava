@@ -115,6 +115,8 @@
                               <Font name="Arial" size="15.0" />
                            </font>
                         </Text>
+                        <Button fx:id="trnsalate" mnemonicParsing="false" style="-fx-background-color: #ffffff;" text="translate" textFill="#f81d1d" />
+                        <Text fx:id="trannstxt" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="295.13671875" />
                         <VBox fx:id="vbcom" prefHeight="1938.0" prefWidth="659.0" />
                      </children>
                   </VBox>

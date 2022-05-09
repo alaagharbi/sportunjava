@@ -62,6 +62,8 @@ public class ListArticleFrontController implements Initializable {
     private Button bt5;
     @FXML
     private Button bt6;
+    @FXML
+    private Button ajouterArt;
 
     /**
      * Initializes the controller class.
@@ -142,6 +144,9 @@ herbox.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.
             voboxid.getChildren().addAll(herbox,lab4);
                
        }
+             ajouterArt.setOnAction(eventss->{
+                         URL fxURL = getClass().getResource("../GUI/AjouterArticleFXML.fxml");
+             });
     }    
   
     
