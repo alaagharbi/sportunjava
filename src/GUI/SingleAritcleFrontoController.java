@@ -5,14 +5,12 @@
  */
 package GUI;
 
-import com.google.gson.*;
-import java.io.CharArrayReader;
+import javafx.scene.input.MouseEvent;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
-import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -34,76 +32,71 @@ import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import static javax.swing.text.StyleConstants.Bold;
 import model.Article;
 import model.Commentaire;
 import model.PostLikes;
-import okhttp3.MediaType;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
-import okhttp3.ResponseBody;
 import service.ServiceArticle;
 import service.ServiceCommentaire;
 import sportunjava.SportunJava;
 import utils.Statics;
-import org.json.*;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-import okhttp3.ResponseBody;
 import org.json.JSONObject;
-
+import org.json.JSONArray;
 /**
  * FXML Controller class
  *
  * @author alaagha
  */
-public class SingleArticlFrantController implements Initializable {
+public class SingleAritcleFrontoController implements Initializable {
 
-    @FXML
-    private Text singblogtitreid;
     @FXML
     private Text txtdescription;
     @FXML
-    private ImageView btlikes;
+    private Button btliko;
     @FXML
-    private ImageView btdislikes;
+    private ImageView btlikes;
     @FXML
     private Label lLikes;
     @FXML
+    private Button btds;
+    @FXML
+    private ImageView btdislikes;
+    @FXML
     private Label lcommentaires;
     @FXML
-    private Label lhashtag;
-        @FXML
     private Label lDate;
     @FXML
+    private Label lhashtag;
+    @FXML
     private Label lArticleTitre;
-@FXML
-private ImageView ivArt;
+    @FXML
+    private ImageView ivArt;
+    @FXML
+    private Text txtArt;
+    @FXML
+    private Button trnsalate;
+    @FXML
+    private Text trannstxt;
     @FXML
     private VBox vbcom;
-    private Article article;
-    @FXML
-    private Button btliko;
-     @FXML
-    private Button btds;
-     @FXML
-     private Button trnsalate;
-     @FXML
-     private Text trannstxt;
- 
+
+        private Article article;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-        String usrname="usrname";
+        // TODO
+         String usrname="usrname";
         int artid=Statics.ART.getId();
         ListView<VBox> li=new ListView<>();
     ServiceArticle sa=new ServiceArticle();
@@ -111,7 +104,7 @@ private ImageView ivArt;
        
         lArticleTitre.setText(article.getTitre());
         txtdescription.setText(article.getDescription());
-        //txtArt.setText(article.getText());
+        txtArt.setText(article.getText());
         lhashtag.setText(article.getTag());
         lDate.setText(article.getCreatedAt());
         lLikes.setText(sa.likesCount(artid)+" likes");
@@ -127,8 +120,7 @@ private ImageView ivArt;
                 p.setArticleId(artid);
                 p.setUserId(2);
                 sa.liker(p);
-                URL fxUL = getClass().getResource("../GUI/SingleArticlFrant.fxml");
-                //URL fxURL = getClass().getResource("../gui1/Payment.fxml");
+                URL fxUL = getClass().getResource("../GUI/SingleAritcleFronto.fxml");
                 Parent root = FXMLLoader.load(fxUL);
                 Stage win = (Stage) lLikes.getScene().getWindow();
                 win.setScene(new Scene(root));
@@ -141,9 +133,7 @@ private ImageView ivArt;
                 p.setArticleId(artid);
                 p.setUserId(2);
                 sa.supprimerlikes(p.getArticleId(),p.getUserId());
-                URL fxUL = getClass().getResource("../GUI/SingleArticlFrant.fxml");
-                
-                //URL fxURL = getClass().getResource("../gui1/Payment.fxml");
+                URL fxUL = getClass().getResource("../GUI/SingleAritcleFronto.fxml");                
                 Parent root = FXMLLoader.load(fxUL);
                 Stage win = (Stage) lLikes.getScene().getWindow();
                 win.setScene(new Scene(root));
@@ -162,8 +152,8 @@ File im=new File(Statics.RelativeURL+"\\"+article.getMedia());
         } catch (MalformedURLException ex) {
             Logger.getLogger(SingleArticlFrantController.class.getName()).log(Level.SEVERE, null, ex);
         }
-                    ivArt.setFitHeight(685);
-                    ivArt.setFitWidth(276);
+                   // ivArt.setFitHeight(666);
+                 //   ivArt.setFitWidth(298);
         System.out.println(sa.likesCount(artid));
         
         
@@ -181,7 +171,7 @@ File im=new File(Statics.RelativeURL+"\\"+article.getMedia());
                 com.setUsername(usrname);
                 com.setText(txAddCom.getText());
                 sc.ajouter(com);
-                URL fxUL = getClass().getResource("../GUI/SingleArticlFrant.fxml");
+                URL fxUL = getClass().getResource("../GUI/SingleAritcleFronto.fxml");
                 
                 Parent root = FXMLLoader.load(fxUL);
                 Stage win = (Stage) btajcom.getScene().getWindow();
@@ -193,13 +183,15 @@ File im=new File(Statics.RelativeURL+"\\"+article.getMedia());
 VBox verbo = new VBox();
             labusr.setPrefWidth(300);
             txAddCom.setPrefWidth(300);
-                           HBox herbb=new HBox();               
+//            txAddCom.setBackground(new Background(new BackgroundFill(Color.web("#393351"), CornerRadii.EMPTY, Insets.EMPTY)));
+                           HBox herbb=new HBox();    
+        btajcom.setStyle("-fx-background-color: #f23849");
                            Label labe = new Label();
          verbo.getChildren().addAll(labusr,txAddCom,btajcom);
             herbb.getChildren().addAll(verbo);
             herbb.setPrefWidth(vbcom.getMaxWidth());
             herbb.getStyleClass().add("color-palette");
-            herbb.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
+            herbb.setBackground(new Background(new BackgroundFill(Color.web("#393351"), CornerRadii.EMPTY, Insets.EMPTY)));
             vbcom.getChildren().addAll(herbb,labe);
         int i = 0;
         for(Commentaire elem: lscomnnet){
@@ -213,7 +205,7 @@ VBox verbo = new VBox();
                btsupprimer.setOnAction(event ->{
     try {
         sc.supprimer(elem);
-        URL fxURL = getClass().getResource("../GUI/SingleArticlFrant.fxml");
+        URL fxURL = getClass().getResource("../GUI/SingleAritcleFronto.fxml");
         
         Parent root = FXMLLoader.load(fxURL);
         Stage win = (Stage) btsupprimer.getScene().getWindow();
@@ -244,13 +236,18 @@ VBox verbo = new VBox();
               // btsupprimer.setGraphic(imgId);
                VBox verbox = new VBox();
             lab.setText(elem.getUsername());
+            lab.setTextFill(Color.web("#FA2C56"));
             lab.setPrefWidth(300);
             System.out.println(elem.getUsername());
             lab1.setText(elem.getText());
-            //lab1.setText(cencor(elem.getText()));
+            lab1.setTextFill(Color.BLANCHEDALMOND);
+            lab1.setText(cencor(elem.getText()));
             lab1.setPrefWidth(300);
             verbox.getChildren().addAll(lab,lab1);
+            
             if(elem.getUsername().equals(usrname)){
+                btsupprimer.setTextFill(Color.web("#FA2C56"));
+                btmodifer.setTextFill(Color.web("#FFFFFF"));
             herbox.getChildren().addAll(verbox,btsupprimer,btmodifer);
             }else
             {
@@ -258,7 +255,7 @@ VBox verbo = new VBox();
             }
             herbox.setPrefWidth(vbcom.getMaxWidth());
             herbox.getStyleClass().add("color-palette");
-            herbox.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
+            herbox.setBackground(new Background(new BackgroundFill(Color.web("#393351"), CornerRadii.EMPTY, Insets.EMPTY)));
             vbcom.getChildren().addAll(herbox,lab3);
         }
         trnsalate.setOnAction(events->{
@@ -277,12 +274,11 @@ VBox verbo = new VBox();
             
             Request request = new Request.Builder()
                     .url("https://api.apilayer.com/bad_words?censor_character=*")
-                    .addHeader("apikey", "2IvCFgifsyIr1nS98p22dlt6WDq8KQ2i")
+                    .addHeader("apikey", "mTJ9KbWtFgygUnzeNupYFhifDOeMkCSL")
                     .method("POST", body)
                     .build();
             Response response = client.newCall(request).execute();
                         JSONObject jArray = new JSONObject(response.body().string());
-                     //               System.out.println(response.body().string());
                   String deviceId = (String) jArray.toString();
                   System.out.println(deviceId);
                  return jArray.get("censored_content").toString();
@@ -300,7 +296,7 @@ VBox verbo = new VBox();
             MediaType mediaType = MediaType.parse("text/plain");
             RequestBody body = RequestBody.create(mediaType, st);
             Request request = new Request.Builder() .url("https://api.apilayer.com/language_translation/translate?target=en") 
-                     .addHeader("apikey", "2IvCFgifsyIr1nS98p22dlt6WDq8KQ2i")
+                     .addHeader("apikey", "XSMFQDr2F7FEEYvsg2TpxnE7CXeF4lvb")
                      .method("POST", body) .build(); 
             Response response = client.newCall(request).execute();
                      JSONObject jArray =(JSONObject) new JSONObject(response.body().string());
@@ -312,11 +308,15 @@ VBox verbo = new VBox();
    dev = object3.getString("translation");
 
 }
-                     //System.out.println(dev);
                     return dev;
         } catch (IOException ex) {
-            Logger.getLogger(SingleArticlFrantController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SingleAritcleFrontoController.class.getName()).log(Level.SEVERE, null, ex);
         }
         return stt;
     }
-}          
+
+    @FXML
+    private void closewin(MouseEvent event) {
+    }
+    
+}

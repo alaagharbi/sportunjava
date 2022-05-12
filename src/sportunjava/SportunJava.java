@@ -189,8 +189,9 @@ public class SportunJava extends Application{
           // URL fxURL = getClass().getResource("../gui1/ReservationServiceGUI.fxml");
             //URL fxURL = getClass().getResource("../gui1/ReservationPackGUI.fxml");
           // URL fxURL = getClass().getResource("../gui1/GestiondesReservations.fxml");
-//          URL fxURL = getClass().getResource("../GUI/SingleArticlFrant.fxml");
-                 URL fxURL = getClass().getResource("../GUI/ListArticleFronto.fxml");
+         // URL fxURL = getClass().getResource("../GUI/SingleAritcleFronto.fxml");
+               URL fxURL = getClass().getResource("../GUI/ListArticleFrontoo.fxml");
+               //                  URL fxURL = getClass().getResource("../GUI/AjouterArticleFXML.fxml");
 
               //URL fxURL = getClass().getResource("../gui1/Payment.fxml");
             Parent root = FXMLLoader.load(fxURL);

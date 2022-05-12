@@ -57,7 +57,7 @@ public class ModifierCommentaireController implements Initializable {
                             ServiceCommentaire sc=new ServiceCommentaire();
                 com.setText(tfmodifCom.getText());
                 sc.modifier(com);
-                URL fxUL = getClass().getResource("../GUI/SingleArticlFrant.fxml");
+                URL fxUL = getClass().getResource("../GUI/SingleAritcleFronto.fxml");
                 
                 Parent root = FXMLLoader.load(fxUL);
                 Stage win = (Stage) btsub.getScene().getWindow();
@@ -67,6 +67,20 @@ public class ModifierCommentaireController implements Initializable {
             }
         });
 
+        btannuler.setOnAction(envenn->{
+                       try {
+                            ServiceCommentaire sc=new ServiceCommentaire();
+                com.setText(tfmodifCom.getText());
+                sc.modifier(com);
+                URL fxUL = getClass().getResource("../GUI/SingleAritcleFronto.fxml");
+                
+                Parent root = FXMLLoader.load(fxUL);
+                Stage win = (Stage) btsub.getScene().getWindow();
+                win.setScene(new Scene(root));
+            } catch (IOException ex) {
+                Logger.getLogger(SingleArticlFrantController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
     }    
     public void modif(Commentaire com){
         txtusername.setText(com.getUsername());
@@ -76,7 +90,7 @@ public class ModifierCommentaireController implements Initializable {
                             ServiceCommentaire sc=new ServiceCommentaire();
                 com.setText(tfmodifCom.getText());
                 sc.modifier(com);
-                URL fxUL = getClass().getResource("../GUI/SingleArticlFrant.fxml");
+                URL fxUL = getClass().getResource("../GUI/SingleAritcleFronto.fxml");
                 
                 Parent root = FXMLLoader.load(fxUL);
                 Stage win = (Stage) btsub.getScene().getWindow();

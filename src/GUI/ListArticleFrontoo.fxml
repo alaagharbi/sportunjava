@@ -3,18 +3,19 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="643.0" prefWidth="1083.0" style="-fx-background-color: #2F2B43;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ModifierCommentaireController">
+<AnchorPane id="AnchorPane" prefHeight="687.0" prefWidth="1244.0" style="-fx-background-color: #2F2B43;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ListArticleFrontooController">
    <children>
-      <AnchorPane layoutX="10.0" layoutY="8.0" prefHeight="519.0" prefWidth="262.0" style="-fx-background-color: #393351;">
+      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="675.0" prefWidth="262.0" style="-fx-background-color: #393351;">
          <children>
-            <VBox layoutY="147.0" prefHeight="356.0" prefWidth="262.0" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="147.0">
+            <VBox layoutY="160.0" prefHeight="658.0" prefWidth="255.0" AnchorPane.bottomAnchor="-143.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="160.0">
                <children>
                   <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" style="-fx-background-color: #393351;" styleClass="button1" stylesheets="@../../../../../Downloads/waell/Pidev/src/pidev/css/fullpackstyling.css" text="Utilisateur" textFill="WHITE">
                      <VBox.margin>
@@ -35,7 +36,7 @@
                         <Font size="14.0" />
                      </font>
                   </Button>
-                  <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" style="-fx-background-color: #393351;" styleClass="button1" stylesheets="@../../../../../Downloads/waell/Pidev/src/pidev/css/fullpackstyling.css" text="Services" textFill="#f8f7f8">
+                  <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" style="-fx-background-color: #393351;" styleClass="button1" stylesheets="@../../../../../Downloads/waell/Pidev/src/pidev/css/fullpackstyling.css" text="Services" textFill="WHITE">
                      <padding>
                         <Insets left="40.0" />
                      </padding>
@@ -43,12 +44,12 @@
                         <Font size="14.0" />
                      </font>
                   </Button>
-                  <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" style="-fx-background-color: #FA2C56;" styleClass="button1" stylesheets="@../../../../../Downloads/waell/Pidev/src/pidev/css/fullpackstyling.css" text="Blog" textFill="WHITE">
+                  <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" style="-fx-background-color: #FA2C56; -fx-background-radius: 5;" styleClass="button1" stylesheets="@../../../../../Downloads/waell/Pidev/src/pidev/css/fullpackstyling.css" text="Blog" textFill="WHITE">
                      <padding>
                         <Insets left="40.0" />
                      </padding>
                      <font>
-                        <Font size="14.0" />
+                        <Font name="System Bold" size="14.0" />
                      </font>
                   </Button>
                   <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" style="-fx-background-color: #393351;" styleClass="button1" stylesheets="@../../../../../Downloads/waell/Pidev/src/pidev/css/fullpackstyling.css" text="Event" textFill="WHITE">
@@ -80,23 +81,20 @@
             </Pane>
          </children>
       </AnchorPane>
-      <Pane layoutX="272.0" layoutY="3.0" prefHeight="649.0" prefWidth="631.0">
+      <Pane layoutX="272.0" layoutY="10.0" prefHeight="649.0" prefWidth="631.0">
          <children>
             <Pane layoutX="-25.0" layoutY="-178.0" prefHeight="303.0" prefWidth="467.0" rotate="41.6" style="-fx-background-color: #FA2C56; -fx-background-radius: 70;" />
-            <TextField fx:id="tfmodifCom" layoutX="67.0" layoutY="339.0" />
-            <Text fx:id="txtusername" fill="#fa2c56" layoutX="66.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="usrname" wrappingWidth="133.13671875">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Text>
-            <Button fx:id="btannuler" layoutX="366.0" layoutY="410.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="82.0" style="-fx-background-color: #393351;" text="annuler" textFill="#fc3b3b" />
-            <Button fx:id="btsub" layoutX="66.0" layoutY="416.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="108.0" style="-fx-background-color: #393351;" text="submit" textFill="#fa2c56" />
-            <Text fill="#fa2c56" layoutX="101.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="modifier Commentaire" wrappingWidth="369.13671875">
-               <font>
-                  <Font name="System Bold" size="24.0" />
-               </font>
-            </Text>
          </children>
       </Pane>
+      <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="1194.0" layoutY="10.0" onMouseClicked="#closewin" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Downloads/waell/Pidev/src/pidev/images/close_window.png" />
+         </image>
+      </ImageView>
+      <ScrollPane layoutX="288.0" layoutY="134.0" prefHeight="550.0" prefWidth="957.0" style="-fx-background-color: #f23849;">
+         <content>
+            <VBox fx:id="vbfront" prefHeight="2192.0" prefWidth="952.0" style="-fx-background-color: #2F2B43;" />
+         </content>
+      </ScrollPane>
    </children>
 </AnchorPane>

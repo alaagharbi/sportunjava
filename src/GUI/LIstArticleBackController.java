@@ -68,6 +68,10 @@ public class LIstArticleBackController implements Initializable {
     private Button btsearcher;
       @FXML
       private Button bttri;
+      @FXML
+      private Button ajouterArt;
+      @FXML
+      private Button btannuller;
 private Label time;
     /**
      * Initializes the controller class.
@@ -121,6 +125,8 @@ btdetail.setText("details");
                
                
                btdelete.setText("supprimer");
+               
+               
                btdelete.setOnAction(event ->{
     try {
         sa.supprimer(elem);
@@ -135,6 +141,7 @@ btdetail.setText("details");
         Logger.getLogger(ListCommentsFXMLController.class.getName()).log(Level.SEVERE, null, ex);
     }
                });
+               
                               Label lab4 = new Label();
                HBox herbox = new HBox();
                               VBox verbox = new VBox();
@@ -390,6 +397,18 @@ herbox.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.
             voboxid.getChildren().addAll(herbox,lab4);
                           
        }
+               });
+                         ajouterArt.setOnAction(ev->{
+                try {
+                    URL fxURL = getClass().getResource("../GUI/AjouterArticleFXML.fxml");
+                    
+                    //URL fxURL = getClass().getResource("../gui1/Payment.fxml");
+                    Parent root = FXMLLoader.load(fxURL);
+                    Stage win = (Stage) ajouterArt.getScene().getWindow();
+                    win.setScene(new Scene(root));
+                } catch (IOException ex) {
+                    Logger.getLogger(LIstArticleBackController.class.getName()).log(Level.SEVERE, null, ex);
+                }
                });
     }    
 
