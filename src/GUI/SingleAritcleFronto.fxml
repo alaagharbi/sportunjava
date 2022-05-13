@@ -168,7 +168,7 @@
                   </ImageView>
                   <VBox layoutX="215.0" layoutY="458.0" prefHeight="1961.0" prefWidth="659.0">
                      <children>
-                        <Text fx:id="txtArt" fill="#f8f6f6" strokeType="OUTSIDE" strokeWidth="0.0" text=" " wrappingWidth="658.13671875">
+                        <Text fx:id="txtArt" fill="#f8f6f6" strokeType="OUTSIDE" strokeWidth="0.0" text="tex" wrappingWidth="658.13671875">
                            <font>
                               <Font name="Arial" size="18.0" />
                            </font>
@@ -178,7 +178,7 @@
                               <Font name="Arial" size="14.0" />
                            </font>
                         </Button>
-                        <Text fx:id="trannstxt" fill="#f8f5f5" strokeType="OUTSIDE" strokeWidth="0.0" text=" " wrappingWidth="651.13671875">
+                        <Text fx:id="trannstxt" fill="#f8f5f5" strokeType="OUTSIDE" strokeWidth="0.0" text="translate" wrappingWidth="651.13671875">
                            <font>
                               <Font size="18.0" />
                            </font></Text>

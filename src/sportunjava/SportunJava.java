@@ -5,6 +5,7 @@
  */
 package sportunjava;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Map;
@@ -24,6 +25,9 @@ import org.json.JSONObject;
 import java.lang.Object;
 import java.lang.String;
 import javafx.application.Application;
+import javafx.scene.image.Image;
+import javax.swing.text.StyleConstants;
+import utils.Statics;
 /**
  *
  * @author alaagha
@@ -198,6 +202,11 @@ public class SportunJava extends Application{
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.setTitle("SPORTUN");
+            File im=new File("C:\\Users\\alaes\\Documents\\NetBeansProjects\\SportunJava\\src\\blogimages\\sportun.png");
+
+            Image iconn=new Image(im.toURI().toURL().toString());
+            primaryStage.getIcons().add(iconn);
+         //   StyleConstants.setIcon("sprtun",Image("C:\\Users\\alaes\\Documents\\NetBeansProjects\\SportunJava\\src\\blogimages\\sportun.png"));
             primaryStage.show();
         } catch (IOException ex) {
             System.out.print(ex.getMessage());
